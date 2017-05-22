@@ -1,0 +1,85 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.3
+-- http://www.phpmyadmin.net
+--
+-- 호스트: localhost
+-- 처리한 시간: 10-07-16 19:49 
+-- 서버 버전: 5.1.41
+-- PHP 버전: 5.2.12
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- 데이터베이스: `lowcrash24`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `ad`
+--
+
+CREATE TABLE IF NOT EXISTS `ad` (
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `inserted` datetime NOT NULL,
+  `langtype` int(5) DEFAULT '0',
+  `subtype` int(5) DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- 테이블의 덤프 데이터 `ad`
+--
+
+INSERT INTO `ad` (`idx`, `title`, `url`, `inserted`, `langtype`, `subtype`) VALUES
+(1, 'Hackers', 'http://www.hackers.co.kr/', '2010-07-16 19:42:53', 0, 0),
+(2, 'Credu OPIC', 'http://book.naver.com/bookdb/book_detail.nhn?bid=6778903', '2010-07-16 19:49:38', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `book`
+--
+
+CREATE TABLE IF NOT EXISTS `book` (
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `isbn` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `inserted` datetime NOT NULL,
+  `langtype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idx`),
+  UNIQUE KEY `isbn` (`isbn`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- 테이블의 덤프 데이터 `book`
+--
+
+INSERT INTO `book` (`idx`, `title`, `isbn`, `inserted`, `langtype`) VALUES
+(6, '시험장에서 바로 써먹는 Opic 고급', '9788994507453', '2014-06-01 17:46:06', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `cast`
+--
+
+CREATE TABLE IF NOT EXISTS `cast` (
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `isbn` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `inserted` datetime NOT NULL,
+  `langtype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idx`),
+  UNIQUE KEY `isbn` (`isbn`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- 테이블의 덤프 데이터 `cast`
+--
+
+INSERT INTO `cast` (`idx`, `title`, `isbn`, `inserted`, `langtype`) VALUES
+(1, 'Hackers toeic AP news', '1234567890123', '2014-06-01 21:43:54', 0),
+(3, 'ESL pod cast', '1234', '2014-06-01 22:49:14', 0);
